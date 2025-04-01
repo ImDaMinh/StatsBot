@@ -287,7 +287,7 @@ async def send_riot_key_reminder():
     paris = pytz.timezone("Europe/Paris")
     now = datetime.datetime.now(paris).strftime("%Y-%m-%d %H:%M:%S")
 
-    user = bot.get_user(OWNER_ID)
+    user = bot.get_user(ALLOWED_ADMINS)
     if user:
         try:
             embed = discord.Embed(
