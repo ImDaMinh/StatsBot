@@ -1,0 +1,7 @@
+# Exclude test scripts
+final.py
+test1.py
+test2.py
+
+# Exclude environment secrets
+.env

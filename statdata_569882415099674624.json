@@ -1,0 +1,289 @@
+[
+    {
+        "riot_id": "SOS#Bi0",
+        "level": 445,
+        "kda": [
+            13.4,
+            10.8,
+            14.4
+        ],
+        "ranked": [
+            {
+                "leagueId": "c50859aa-fbf4-428e-90e1-ec19e4aa3c99",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "DIAMOND",
+                "rank": "I",
+                "summonerId": "-VHD4Jmbd7o7EvflyuuIZZlqeCn06GlfiWTpiZBV28joBSn4",
+                "puuid": "sP6V-hcXho-BnYvZOeNagSkxt0Z1i43Nu561cn9_tnQpkcMvYTiN--udIp7vbP_ljdTj3jBbSfrsKg",
+                "leaguePoints": 55,
+                "wins": 111,
+                "losses": 117,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": true,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "d718a617-8e6d-4901-9344-51ee93e7861b",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "DIAMOND",
+                "rank": "III",
+                "summonerId": "-VHD4Jmbd7o7EvflyuuIZZlqeCn06GlfiWTpiZBV28joBSn4",
+                "puuid": "sP6V-hcXho-BnYvZOeNagSkxt0Z1i43Nu561cn9_tnQpkcMvYTiN--udIp7vbP_ljdTj3jBbSfrsKg",
+                "leaguePoints": 23,
+                "wins": 27,
+                "losses": 25,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Ch\u1ecb Ong Iron Bee#Lele",
+        "level": 312,
+        "kda": [
+            1.8,
+            2.8,
+            24.6
+        ],
+        "ranked": [
+            {
+                "leagueId": "6a233897-7ab6-40f8-b244-e3aff8147e8c",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "BRONZE",
+                "rank": "IV",
+                "summonerId": "GtvZ-CjZ6KtLHODUz0LzqNWvYAEvdCqH48SuZx_4PKZFU27KWhECaaQkkQ",
+                "puuid": "md3k1Ic0quYYDOBMNdDcAybzS7daifXoPbR9Zz7nYx1o55_PtaDQdCN9QHMu80CgyKx8BOhCm2kW4g",
+                "leaguePoints": 38,
+                "wins": 9,
+                "losses": 3,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "705843df-aaf7-43cc-be6c-b9e6054b80d4",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "GOLD",
+                "rank": "II",
+                "summonerId": "GtvZ-CjZ6KtLHODUz0LzqNWvYAEvdCqH48SuZx_4PKZFU27KWhECaaQkkQ",
+                "puuid": "md3k1Ic0quYYDOBMNdDcAybzS7daifXoPbR9Zz7nYx1o55_PtaDQdCN9QHMu80CgyKx8BOhCm2kW4g",
+                "leaguePoints": 75,
+                "wins": 6,
+                "losses": 5,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "\u5218\u6cf0\u5c71#tsn",
+        "level": 130,
+        "kda": [
+            12.0,
+            10.6,
+            27.4
+        ],
+        "ranked": []
+    },
+    {
+        "riot_id": "skzz99#zzz",
+        "level": 367,
+        "kda": [
+            10.8,
+            10.0,
+            19.4
+        ],
+        "ranked": []
+    },
+    {
+        "riot_id": "King of H\u00e1nng 38#EUW",
+        "level": 755,
+        "kda": [
+            5.6,
+            7.4,
+            6.0
+        ],
+        "ranked": [
+            {
+                "leagueId": "1976215c-de64-34aa-ac81-613838e2563f",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "MASTER",
+                "rank": "I",
+                "summonerId": "5-zi3oWID8sqNsWX0bsb4ecNEQc8nnAzFytVqqMBUFRqsaeS6jekfQ3fMQ",
+                "puuid": "Pek54Uk9ZCNpIsWol4kUV6LW8Sq-SWon16elUxU0UfGfarSubKUjxE1GOlqM02CLjVVRhkVQcducAQ",
+                "leaguePoints": 0,
+                "wins": 174,
+                "losses": 181,
+                "veteran": true,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "ab3b62b9-d235-3dc1-bc15-726525c19665",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "GRANDMASTER",
+                "rank": "I",
+                "summonerId": "5-zi3oWID8sqNsWX0bsb4ecNEQc8nnAzFytVqqMBUFRqsaeS6jekfQ3fMQ",
+                "puuid": "Pek54Uk9ZCNpIsWol4kUV6LW8Sq-SWon16elUxU0UfGfarSubKUjxE1GOlqM02CLjVVRhkVQcducAQ",
+                "leaguePoints": 368,
+                "wins": 127,
+                "losses": 119,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Haribo#0706",
+        "level": 121,
+        "kda": [
+            16.2,
+            8.0,
+            23.0
+        ],
+        "ranked": [
+            {
+                "leagueId": "885ff275-07fa-4516-9a17-56b691e7338e",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "BRONZE",
+                "rank": "III",
+                "summonerId": "AAgDM11ZvVqXhkh0ZcDSjwUnoImSFDlgCUPxaeyXMMq_wyo",
+                "puuid": "EsJlBY2wPjCBArGFm4KJuUEwp_lCrUhtIa-oWRNw63ccq8cQTN5Mm3RsLGX_ZyeZv_6R2kepXK4uQQ",
+                "leaguePoints": 78,
+                "wins": 15,
+                "losses": 15,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Duy Leo#1208",
+        "level": 808,
+        "kda": [
+            8.2,
+            5.0,
+            10.6
+        ],
+        "ranked": [
+            {
+                "leagueId": "4abbbaa9-662e-428a-8db6-f5530d273e91",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "DIAMOND",
+                "rank": "I",
+                "summonerId": "U8yZTNJ-T4I5CrpYeFTQMp8Ogmzm1Lb_nl2c5MLkc8iAI58p",
+                "puuid": "lKyraJkvYtRh6ebZCVKXSMZpuGDauR1vlUfu0DUE4dmc-hQh_NXGk6SBzHTdP6RigL8OqZtV8_gABg",
+                "leaguePoints": 48,
+                "wins": 24,
+                "losses": 24,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "1976215c-de64-34aa-ac81-613838e2563f",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "MASTER",
+                "rank": "I",
+                "summonerId": "U8yZTNJ-T4I5CrpYeFTQMp8Ogmzm1Lb_nl2c5MLkc8iAI58p",
+                "puuid": "lKyraJkvYtRh6ebZCVKXSMZpuGDauR1vlUfu0DUE4dmc-hQh_NXGk6SBzHTdP6RigL8OqZtV8_gABg",
+                "leaguePoints": 70,
+                "wins": 65,
+                "losses": 71,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Solar#2807",
+        "level": 273,
+        "kda": [
+            11.8,
+            9.6,
+            15.2
+        ],
+        "ranked": [
+            {
+                "leagueId": "759fcca4-2214-38fe-ab6d-5a59a6182721",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "MASTER",
+                "rank": "I",
+                "summonerId": "Zd3L4uyHoSpEQicKJ1zZsMj1DFGnD4Jz0qUb7GghMusdMa4J9bgkF1KNkA",
+                "puuid": "PRr6e3uxEPqu4TI-IRKl4FielBxJW4eT-ubfpmwKnXnHUGnlg_SEn3Kgp7J7DGWxsVasss5X9Dt1mw",
+                "leaguePoints": 0,
+                "wins": 54,
+                "losses": 53,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": true,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "1a29c55e-d399-4d06-9afb-8984e87e35a9",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "EMERALD",
+                "rank": "IV",
+                "summonerId": "Zd3L4uyHoSpEQicKJ1zZsMj1DFGnD4Jz0qUb7GghMusdMa4J9bgkF1KNkA",
+                "puuid": "PRr6e3uxEPqu4TI-IRKl4FielBxJW4eT-ubfpmwKnXnHUGnlg_SEn3Kgp7J7DGWxsVasss5X9Dt1mw",
+                "leaguePoints": 53,
+                "wins": 75,
+                "losses": 78,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "RCD jin#8386",
+        "level": 209,
+        "kda": [
+            3.8,
+            7.4,
+            9.6
+        ],
+        "ranked": []
+    },
+    {
+        "riot_id": "DatVu#0909",
+        "level": 163,
+        "kda": [
+            9.4,
+            8.6,
+            15.6
+        ],
+        "ranked": [
+            {
+                "leagueId": "ec059409-63ee-4ab3-a22b-118c88f66e7e",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "EMERALD",
+                "rank": "IV",
+                "summonerId": "Cw_OO-mxfb8rQB2m0LwUAm8xAakDWRadXU80--oke0gCNhvcCZrk6jT5eA",
+                "puuid": "aj_0FhyDas2PgQcOIzW-BF9XzGNNPOqnETHdLDYKm6Raf-4Qo7zBU3H9wddkkW3lg9ypp7CQMvyayQ",
+                "leaguePoints": 29,
+                "wins": 104,
+                "losses": 106,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": true,
+                "hotStreak": false
+            }
+        ]
+    }
+]

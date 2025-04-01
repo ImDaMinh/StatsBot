@@ -1,0 +1,306 @@
+[
+    {
+        "riot_id": "KOS NiceTroai#0302",
+        "level": 307,
+        "kda": [
+            3.2,
+            6.2,
+            7.4
+        ],
+        "ranked": []
+    },
+    {
+        "riot_id": "VNFK Pi#EUW",
+        "level": 369,
+        "kda": [
+            8.6,
+            6.6,
+            23.2
+        ],
+        "ranked": [
+            {
+                "leagueId": "ce7fb341-8d23-4f4f-8c09-e3a053b967c7",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "PLATINUM",
+                "rank": "III",
+                "summonerId": "cCnpCf3EgbeeDwDUsDYybyi8RTjAVKGU0DOOBAAOzOXFW-M",
+                "puuid": "CgS04mAu4dHYsx42MaqhkoQAsjiGDBidIDXkT6Eg4f5stK6dizygSF16_r68c-PFdiPRT_bJ0W6O1A",
+                "leaguePoints": 14,
+                "wins": 23,
+                "losses": 19,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "AngryMThaii#Lofi",
+        "level": 706,
+        "kda": [
+            8.4,
+            7.4,
+            12.6
+        ],
+        "ranked": [
+            {
+                "leagueId": "89ed4759-b316-4469-9051-c1bccfb4e39b",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "EMERALD",
+                "rank": "II",
+                "summonerId": "JpvLWCNVRsC_ZkeX2e-ktq4Yh4dPYpe2elX11CJaebju0uux",
+                "puuid": "UtsryJBxiIfEYNo7xrgByUtjjR1IJLT0Uu9J0LkaRCY4WUeXvrfDTLXHLDFCYQL-iDdZOGf09Pq0bg",
+                "leaguePoints": 45,
+                "wins": 3,
+                "losses": 3,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Khoalinh Nguyen#booN",
+        "level": 772,
+        "kda": [
+            6.2,
+            9.6,
+            37.4
+        ],
+        "ranked": [
+            {
+                "leagueId": "01468ea9-b879-4a32-ba0e-8fc38064563b",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "PLATINUM",
+                "rank": "II",
+                "summonerId": "enlCe7B9xkbqtlRA_YifhMuIXGL9wWIiAWnyGK5D9gYzrAZ6",
+                "puuid": "ECPWgyaGWeCblBo5wa3rVGKEMPgFgizdmwINcp20p5JLUaw2ZCpPSmzOOljd85phH8ls4vnoFt-Xww",
+                "leaguePoints": 40,
+                "wins": 2,
+                "losses": 3,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Yujin#201",
+        "level": 1007,
+        "kda": [
+            6.6,
+            6.6,
+            9.6
+        ],
+        "ranked": [
+            {
+                "leagueId": "93c96922-9943-4a8d-976d-cc23eeb2e6a3",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "DIAMOND",
+                "rank": "II",
+                "summonerId": "uW7nT2DeJZs41UXW2_2zheEs4CAfEoOmU2dHwDEmurlTp44",
+                "puuid": "Tc4i-v21KvMnYy5Zo7nGz7xtcx4oKwDHoCgqPmVSTow02zHqM_OpDiCLDILyAFcxtOaYWcVDUXvNaw",
+                "leaguePoints": 61,
+                "wins": 17,
+                "losses": 16,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "a8efbe29-8352-340d-a2f7-3802c009fad3",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "GRANDMASTER",
+                "rank": "I",
+                "summonerId": "uW7nT2DeJZs41UXW2_2zheEs4CAfEoOmU2dHwDEmurlTp44",
+                "puuid": "Tc4i-v21KvMnYy5Zo7nGz7xtcx4oKwDHoCgqPmVSTow02zHqM_OpDiCLDILyAFcxtOaYWcVDUXvNaw",
+                "leaguePoints": 705,
+                "wins": 398,
+                "losses": 373,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": true,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "tu\u1ebf tu\u1ebf b\u00ecnh an#LSB",
+        "level": 676,
+        "kda": [
+            10.0,
+            11.2,
+            25.0
+        ],
+        "ranked": [
+            {
+                "leagueId": "1c8e5319-1361-4132-b298-e849e4cff2ff",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "DIAMOND",
+                "rank": "I",
+                "summonerId": "G25NtdjLDJ5se0Ryy9A8Cs7V_Uybck7ejc2L62-b68B_oV0R",
+                "puuid": "xX1bmRuLicXYSRknzzhXNPFKHZ5YaCQzZdVw08K2CcCe3vv-1mxZEBTkQO8ykAVau2Qdv6MFe9amsw",
+                "leaguePoints": 77,
+                "wins": 65,
+                "losses": 75,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "3c848fb2-fbf6-429b-a231-c8fc27bb05c2",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "DIAMOND",
+                "rank": "II",
+                "summonerId": "G25NtdjLDJ5se0Ryy9A8Cs7V_Uybck7ejc2L62-b68B_oV0R",
+                "puuid": "xX1bmRuLicXYSRknzzhXNPFKHZ5YaCQzZdVw08K2CcCe3vv-1mxZEBTkQO8ykAVau2Qdv6MFe9amsw",
+                "leaguePoints": 79,
+                "wins": 95,
+                "losses": 104,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": true
+            }
+        ]
+    },
+    {
+        "riot_id": "AnL\u1ea1cH\u01b0 \u00c1cBa#16VN",
+        "level": 85,
+        "kda": [
+            3.6,
+            8.2,
+            10.0
+        ],
+        "ranked": [
+            {
+                "leagueId": "392c72b8-f6bc-4bd6-bf18-7cf69a50b131",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "SILVER",
+                "rank": "IV",
+                "summonerId": "AnrTvhm94S8P1jWBZ_u3FjHWtcjMDll0-s5Vg2BMyql3VvkKoJY8oVysUg",
+                "puuid": "msdmoTHB-pb2S00uh97yS6Go8XmWoEEkAc_9usPUjxUZj1v2KIJHmA0-_-ys7ZZ7EfkfrAhjz55NFQ",
+                "leaguePoints": 28,
+                "wins": 2,
+                "losses": 4,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": true,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Aishhh#EUW",
+        "level": 209,
+        "kda": [
+            6.4,
+            8.6,
+            11.2
+        ],
+        "ranked": [
+            {
+                "leagueId": "fda6fcc6-4189-4bf9-bd2c-9ad4441ad719",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "PLATINUM",
+                "rank": "IV",
+                "summonerId": "Ul3Km_9tgzRD7CSS-KWkgZYF0xHBJQxzS40zM_kmNXun-1D8",
+                "puuid": "KkuCcvyADZ2ubjTwqrIBt6lf-ylNpOLZXlHlZ7eoIW9Z9NsQrN_3_nviXULCSSfyTJwqm1R7UDjJNg",
+                "leaguePoints": 41,
+                "wins": 14,
+                "losses": 14,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "Qu\u00e2n kh\u00f4ng ap#tank",
+        "level": 612,
+        "kda": [
+            9.4,
+            8.4,
+            7.8
+        ],
+        "ranked": [
+            {
+                "leagueId": "9c2b51b1-d95e-4ba1-ad06-07d29c83da76",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "DIAMOND",
+                "rank": "IV",
+                "summonerId": "8HRgZcob32fx8Q7jj45HHCixtngngpx1AL20x8tjjHmFWKHt",
+                "puuid": "3FMUL4pRuH1_kGfe4bev9RkYdLaAT9Erd_3UlxZOoRjyLuYCDfZIFd0jPHwClG2jZsovmJY-nsC1VQ",
+                "leaguePoints": 53,
+                "wins": 56,
+                "losses": 62,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "3acc0c9c-f8a5-4011-8963-7f43a8672c1f",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "PLATINUM",
+                "rank": "I",
+                "summonerId": "8HRgZcob32fx8Q7jj45HHCixtngngpx1AL20x8tjjHmFWKHt",
+                "puuid": "3FMUL4pRuH1_kGfe4bev9RkYdLaAT9Erd_3UlxZOoRjyLuYCDfZIFd0jPHwClG2jZsovmJY-nsC1VQ",
+                "leaguePoints": 48,
+                "wins": 24,
+                "losses": 38,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            }
+        ]
+    },
+    {
+        "riot_id": "VietNamese Carry#EUW",
+        "level": 1012,
+        "kda": [
+            7.8,
+            6.4,
+            7.0
+        ],
+        "ranked": [
+            {
+                "leagueId": "8af3a3cb-ef1d-4a56-9dab-fc7224dca73c",
+                "queueType": "RANKED_SOLO_5x5",
+                "tier": "EMERALD",
+                "rank": "IV",
+                "summonerId": "4BDt8Gs9n_0X9O-pFFCP_o7FyvLl5ZXo086LQ-FccZfn_jBS",
+                "puuid": "HJLWpsL47bxC5jG_UVI3D3ZUDgL1pP5T84WEYG2RUiWenXXP0veZeJxeZLGfvsSdiawZNMfUEbaZuQ",
+                "leaguePoints": 38,
+                "wins": 39,
+                "losses": 42,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": false
+            },
+            {
+                "leagueId": "c25580e3-0cdf-4298-83e6-a2bf1e9ef85a",
+                "queueType": "RANKED_FLEX_SR",
+                "tier": "DIAMOND",
+                "rank": "II",
+                "summonerId": "4BDt8Gs9n_0X9O-pFFCP_o7FyvLl5ZXo086LQ-FccZfn_jBS",
+                "puuid": "HJLWpsL47bxC5jG_UVI3D3ZUDgL1pP5T84WEYG2RUiWenXXP0veZeJxeZLGfvsSdiawZNMfUEbaZuQ",
+                "leaguePoints": 60,
+                "wins": 150,
+                "losses": 140,
+                "veteran": false,
+                "inactive": false,
+                "freshBlood": false,
+                "hotStreak": true
+            }
+        ]
+    }
+]
