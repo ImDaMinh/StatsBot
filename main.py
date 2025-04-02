@@ -331,7 +331,7 @@ async def send_riot_key_reminder():
 
 # 🔁 Periodic reminder every 6 hours (adjustable)
 async def periodic_reminder():
-    channel_id = 1354548778652270654  # 🔁 Replace with your real channel ID
+    channel_id = 1355731331669037136  # 🔁 Replace with your real channel ID
     channel = bot.get_channel(channel_id)
     if channel:
         try:
