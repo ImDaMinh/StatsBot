@@ -15,7 +15,7 @@ from itertools import combinations
 from flask import Flask
 from threading import Thread
 import aiohttp
-
+import traceback
 
 # Load environment variables
 load_dotenv()
@@ -255,8 +255,8 @@ class HelpDropdown(Select):
 
 # ========== bot events ==========
 
-@bot.event
 async def on_command_error(ctx, error):
+    # User-friendly messages
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("⚠️ Missing required argument. Please check `st/Help`.")
     elif isinstance(error, commands.CommandNotFound):
@@ -264,7 +264,30 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.CommandOnCooldown):
         await ctx.send(f"⏳ Please wait {round(error.retry_after, 1)}s before using this command again.")
     else:
-        await ctx.send(f"⚠️ An unexpected error occurred: `{error}`")
+        await ctx.send("❌ An unexpected error occurred. The developer has been notified.")
+
+        # Send detailed traceback to admin(s)
+        error_details = "".join(traceback.format_exception(type(error), error, error.__traceback__))
+        for admin_id in ALLOWED_ADMINS:
+            try:
+                user = await bot.fetch_user(admin_id)
+                if user:
+                    embed = discord.Embed(
+                        title="🚨 Bot Error Report",
+                        description=f"An error occurred in `{ctx.command}`",
+                        color=discord.Color.red()
+                    )
+                    embed.add_field(name="User", value=f"{ctx.author} (`{ctx.author.id}`)", inline=False)
+                    embed.add_field(name="Command", value=f"`{ctx.message.content}`", inline=False)
+                    embed.add_field(name="Error", value=f"```{str(error)[:1000]}```", inline=False)
+                    if len(error_details) <= 1024:
+                        embed.add_field(name="Traceback", value=f"```{error_details}```", inline=False)
+                    else:
+                        embed.add_field(name="Traceback (truncated)", value=f"```{error_details[:1000]}```", inline=False)
+                    embed.set_footer(text=f"Channel: #{ctx.channel} • Time: {datetime.datetime.now().strftime('%H:%M:%S')}")
+                    await user.send(embed=embed)
+            except Exception as e:
+                print(f"⚠️ Failed to DM admin ({admin_id}): {e}")
 
 
 
