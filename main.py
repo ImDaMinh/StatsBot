@@ -34,7 +34,7 @@ bot = commands.Bot(command_prefix='st/', intents=intents, help_command=None, cas
 
 
 # ✅ Trusted users who can access admin commands
-ALLOWED_ADMINS = [569882415099674624, 298018954138353664]  # Replace with your real Discord user IDs
+ALLOWED_ADMINS = [569882415099674624, 298018954138353664] # Replace with your real Discord user IDs
 
 # In-memory region settings (per user)
 user_regions = {}
@@ -132,6 +132,7 @@ def bot_help_embed(region, user_id):
     embed.add_field(
         name="🔓 Public Tools",
         value=(
+            "**`st/Riotstatus`** — to check if Riot servers are online or having issues\n"
             "**`st/SetRegion <region>`** — Set your default Riot region\n"
             "**`st/Help`** or **`/help`** — View all commands\n"
             "**`st/Check`** — Check Riot ID and region"
@@ -270,16 +271,16 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_ready():
     print(f"✅ Bot is online as {bot.user}")
-    
+
     try:
         synced = await bot.tree.sync()
         print(f"🌐 Synced {len(synced)} slash command(s).")
     except Exception as e:
         print(f"⚠️ Slash sync failed: {e}")
 
-    # 🔁 Schedule the reminder once bot is ready
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(send_riot_key_reminder, 'cron', hour=23, minute=0, timezone='Europe/Paris')
+    scheduler.add_job(send_riot_key_reminder, 'cron', hour=19, minute=50, timezone='Europe/Paris')
+    scheduler.add_job(periodic_reminder, 'interval', hours=6)  # ⏰ Add periodic reminder job
     scheduler.start()
 
 
@@ -287,9 +288,9 @@ async def send_riot_key_reminder():
     paris = pytz.timezone("Europe/Paris")
     now = datetime.datetime.now(paris).strftime("%Y-%m-%d %H:%M:%S")
 
-    user = bot.get_user(ALLOWED_ADMINS)
-    if user:
+    for admin_id in ALLOWED_ADMINS:
         try:
+            user = await bot.fetch_user(admin_id)  # ✅ Works even if user is not cached
             embed = discord.Embed(
                 title="🔐 Riot API Key Reminder",
                 description="Your key’s about to expire! ⚠️ Don’t forget to refresh it.",
@@ -299,12 +300,32 @@ async def send_riot_key_reminder():
             embed.set_footer(text=f"🕰️ Sent at {now} (Paris time)")
 
             await user.send(embed=embed)
-            print(f"[Reminder] Riot key reminder sent at {now}")
+            print(f"[Reminder] ✅ Riot key reminder sent to {user} at {now}")
         except Exception as e:
-            print(f"[Reminder] ❌ Failed to send DM: {e}")
-    else:
-        print("[Reminder] ❌ User not found")
+            print(f"[Reminder] ❌ Failed to send DM to {admin_id}: {e}")
 
+
+
+# 🔁 Periodic reminder every 6 hours (adjustable)
+async def periodic_reminder():
+    channel_id = 1354548778652270654  # 🔁 Replace with your real channel ID
+    channel = bot.get_channel(channel_id)
+    if channel:
+        try:
+            embed = discord.Embed(
+                title="✨ Need Help? Here's What You Can Do!",
+                description=(
+                    "📡 Use **`st/`** is a prefix to start all the commands\n"
+                    "📡 Use **`st/Help`** to explore all commands and categories\n"
+                    "📡 Use **`st/RiotStatus`** to check if Riot servers are online or having issues"
+                ),
+                color=discord.Color.blurple()
+            )
+            embed.set_thumbnail(url="https://cdn.jsdelivr.net/gh/ImDaMinh/lolassets/botgear.png")
+            embed.set_footer(text="Your friendly Statsbot assistant 💬")
+            await channel.send(embed=embed)
+        except Exception as e:
+            print(f"⚠️ Failed to send periodic reminder: {e}")
 
 
 # ========== Riot API Helper Functions ==========
@@ -1334,6 +1355,56 @@ async def remove_riot_id(ctx, *, riot_id):
 
 
 # ========== Setting Commands  ==========
+
+@bot.command(name="RiotStatus")
+async def riot_status(ctx):
+    region, _ = get_user_region(ctx.author.id)
+    url = f"https://{region}.api.riotgames.com/lol/status/v4/platform-data"
+    headers = {"X-Riot-Token": RIOT_API_KEY}
+
+    try:
+        res = requests.get(url, headers=headers, timeout=5)
+        if res.status_code == 200:
+            data = res.json()
+            statuses = data.get("incidents", [])
+
+            if statuses:
+                embed = discord.Embed(
+                    title="⚠️ Riot Server Incident(s) Reported",
+                    color=discord.Color.orange()
+                )
+                for incident in statuses:
+                    updates = incident.get("updates", [])
+                    if updates:
+                        latest = updates[0]
+                        embed.add_field(
+                            name=incident.get("titles", [{}])[0].get("content", "Incident"),
+                            value=latest.get("translations", [{}])[0].get("content", "No details."),
+                            inline=False
+                        )
+            else:
+                embed = discord.Embed(
+                    title="✅ Riot Servers Look Healthy",
+                    description="No incidents or outages reported by Riot.",
+                    color=discord.Color.green()
+                )
+        else:
+            embed = discord.Embed(
+                title="❌ Could Not Fetch Riot Status",
+                description=f"Riot API returned `{res.status_code}` — may be temporarily down.",
+                color=discord.Color.red()
+            )
+
+    except Exception as e:
+        embed = discord.Embed(
+            title="❌ Failed to Connect to Riot API",
+            description=f"Likely a network issue or invalid Riot API key.\n\n`{e}`",
+            color=discord.Color.red()
+        )
+
+    embed.set_footer(text=f"🌍 Region: {region.upper()} • Use st/SetRegion to change")
+    await ctx.send(embed=embed)
+
 
 @bot.command(name="SetRegion")
 async def set_region(ctx, region_code):
