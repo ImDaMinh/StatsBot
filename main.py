@@ -488,7 +488,7 @@ async def resolve_riot_id(ctx, riot_id):
     user_region, user_route = get_user_region(ctx.author.id)
 
     async with aiohttp.ClientSession() as session:
-        # ✅ Try user’s preferred region first
+        # ✅ Try user's preferred region first
         primary = await get_summoner_by_puuid_async(session, puuid, user_region, user_route)
         if primary:
             user_regions[ctx.author.id] = user_region
@@ -526,24 +526,26 @@ async def resolve_riot_id(ctx, riot_id):
         for reg_code, summoner in valid:
             level = summoner.get("summonerLevel", "?")
             label = f"{reg_code.upper()} (Level {level})"
+
             async def make_callback(region=reg_code, summ=summoner):
                 async def callback(interaction):
                     if interaction.user != ctx.author:
-                        await interaction.response.send_message("⛔ Only the original user can select.", ephemeral=True)
-                        return
+                        return await interaction.response.send_message("⛔ Only the original user can select.", ephemeral=True)
+
                     user_regions[ctx.author.id] = region
                     await interaction.response.edit_message(content=f"✅ You selected `{region.upper()}`. Retrying command...", view=None)
-                    new_puuid = summ.get("puuid")
-                    return await ctx.invoke(ctx.command, riot_id=riot_id)  # Retry with same command
+
+                    # 🧠 Retry the exact same command message, patched with selected region
+                    ctx.message.content = f"{ctx.prefix}{ctx.command.name} {riot_id}"
+                    await bot.process_commands(ctx.message)
                 return callback
 
-            button = Button(label=label, style=discord.ButtonStyle.blurple)
+            button = Button(label=label, style=discord.ButtonStyle.primary)
             button.callback = await make_callback()
             view.add_item(button)
 
         await message_sent.edit(view=view)
         return None, None, None, "multi_region_choice"
-
 
 
 
