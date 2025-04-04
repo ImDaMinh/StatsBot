@@ -467,70 +467,82 @@ def get_recent_match_kda(puuid):
     )
 
 async def resolve_riot_id(ctx, riot_id):
-    # Sanitize and parse Riot ID input
     riot_id = riot_id.replace('-', '#').strip()
     if '#' not in riot_id:
         await ctx.send("❌ Invalid Riot ID format. Use `Name#Tag`.")
         return None, None, None, "invalid"
 
     name, tag = [part.strip() for part in riot_id.split('#', 1)]
-
-    print(f"🔍 Parsed Riot ID — Name: '{name}', Tag: '{tag}'")
-
-    # ✅ Use the async version to fetch account info
     account = await get_account_by_riot_id_async(name, tag)
-    print(f"🌐 Riot API Account Response: {account}")
 
-    if account is None:
+    if account is None or "puuid" not in account:
         embed = discord.Embed(
             title="❌ Riot ID Not Found",
-            description="This Riot ID does not exist or was misspelled.\nDouble-check the spelling and format (e.g. **Name#Tag**).",
+            description="Double-check the spelling and format (e.g. **Name#Tag**).",
             color=discord.Color.red()
         )
         await ctx.send(embed=embed)
         return None, None, None, "not_found"
 
-    if "puuid" not in account:
-        embed = discord.Embed(
-            title="⚠️ Riot ID Found, But Unavailable",
-            description=(
-                f"We tried to fetch `{riot_id}`, but no account was found in Riot-supported regions.\n\n"
-                "This Riot ID may exist on **a non-supported platform** like:\n"
-                "• Vietnam (VN2)\n"
-                "• Thailand (TH)\n"
-                "• Taiwan (TW)\n"
-                "• Garena servers\n\n"
-                "🔒 Riot API cannot access these regions."
-            ),
-            color=discord.Color.orange()
-        )
-        embed.set_footer(text="Try another Riot ID from a supported region.")
-        await ctx.send(embed=embed)
-        return None, None, None, "unsupported"
-
     puuid = account["puuid"]
+    user_region, user_route = get_user_region(ctx.author.id)
 
-    # ✅ Parallel async region scan
-    summoner, region, route = await find_summoner_in_any_region(puuid)
+    async with aiohttp.ClientSession() as session:
+        # ✅ Try user’s preferred region first
+        primary = await get_summoner_by_puuid_async(session, puuid, user_region, user_route)
+        if primary:
+            user_regions[ctx.author.id] = user_region
+            return puuid, primary, primary.get("id"), "found"
 
-    if summoner:
-        user_regions[ctx.author.id] = region
-        return puuid, summoner, summoner.get("id"), "found"
+        # 🔍 Scan all other regions
+        tasks = []
+        region_list = []
+        for reg, route in region_routes.items():
+            tasks.append(get_summoner_by_puuid_async(session, puuid, reg, route))
+            region_list.append((reg, route))
 
-    embed = discord.Embed(
-        title="⚠️ Riot ID Found, But No League/TFT Data",
-        description=(
-            f"Riot ID `{riot_id}` exists, but has no public League or TFT data in any Riot-supported region.\n\n"
-            "This might happen if the account is:\n"
-            "• In an unsupported region (e.g. VN2, SEA)\n"
-            "• Private or inactive\n"
-            "• Not played LoL/TFT yet"
-        ),
-        color=discord.Color.orange()
-    )
-    embed.set_footer(text="Try again later or verify the account’s activity.")
-    await ctx.send(embed=embed)
-    return None, None, None, "no_data"
+        results = await asyncio.gather(*tasks)
+        valid = [(r, res) for (r, _), res in zip(region_list, results) if res]
+
+        if not valid:
+            embed = discord.Embed(
+                title="⚠️ Riot ID Found, But No League/TFT Data",
+                description="This Riot ID exists, but has no public League or TFT data in any Riot-supported region.",
+                color=discord.Color.orange()
+            )
+            embed.set_footer(text="Try again later or verify the account’s activity.")
+            await ctx.send(embed=embed)
+            return None, None, None, "no_data"
+
+        if len(valid) == 1:
+            region, summoner = valid[0]
+            user_regions[ctx.author.id] = region
+            return puuid, summoner, summoner.get("id"), "found"
+
+        # ✨ Multiple regions found → ask user to choose
+        view = View(timeout=30)
+        message_sent = await ctx.send("⚠️ Multiple accounts found with the same Riot ID. Please choose one:")
+
+        for reg_code, summoner in valid:
+            level = summoner.get("summonerLevel", "?")
+            label = f"{reg_code.upper()} (Level {level})"
+            async def make_callback(region=reg_code, summ=summoner):
+                async def callback(interaction):
+                    if interaction.user != ctx.author:
+                        await interaction.response.send_message("⛔ Only the original user can select.", ephemeral=True)
+                        return
+                    user_regions[ctx.author.id] = region
+                    await interaction.response.edit_message(content=f"✅ You selected `{region.upper()}`. Retrying command...", view=None)
+                    new_puuid = summ.get("puuid")
+                    return await ctx.invoke(ctx.command, riot_id=riot_id)  # Retry with same command
+                return callback
+
+            button = Button(label=label, style=discord.ButtonStyle.blurple)
+            button.callback = await make_callback()
+            view.add_item(button)
+
+        await message_sent.edit(view=view)
+        return None, None, None, "multi_region_choice"
 
 
 
