@@ -303,7 +303,7 @@ async def on_ready():
 
     scheduler = AsyncIOScheduler()
     scheduler.add_job(send_riot_key_reminder, 'cron', hour=19, minute=50, timezone='Europe/Paris')
-    scheduler.add_job(periodic_reminder, 'interval', hours=6)  # ⏰ Add periodic reminder job
+    scheduler.add_job(periodic_reminder, 'interval', hours=3)  # ⏰ Add periodic reminder job
     scheduler.start()
 
 
@@ -330,25 +330,56 @@ async def send_riot_key_reminder():
 
 
 # 🔁 Periodic reminder every 6 hours (adjustable)
+# 🔁 Periodic reminder every 6 hours (with auto-delete of previous message)
 async def periodic_reminder():
-    channel_id = 1355731331669037136  # 🔁 Replace with your real channel ID
+    channel_id = 1355731331669037136  # Replace with your real channel ID
     channel = bot.get_channel(channel_id)
-    if channel:
-        try:
-            embed = discord.Embed(
-                title="✨ Need Help? Here's What You Can Do!",
-                description=(
-                    "📡 Use **`st/`** is a prefix to start all the commands\n"
-                    "📡 Use **`st/Help`** to explore all commands and categories\n"
-                    "📡 Use **`st/RiotStatus`** to check if Riot servers are online or having issues"
-                ),
-                color=discord.Color.blurple()
-            )
-            embed.set_thumbnail(url="https://cdn.jsdelivr.net/gh/ImDaMinh/lolassets/botgear.png")
-            embed.set_footer(text="Your friendly Statsbot assistant 💬")
-            await channel.send(embed=embed)
-        except Exception as e:
-            print(f"⚠️ Failed to send periodic reminder: {e}")
+    if not channel:
+        print("⚠️ Channel not found.")
+        return
+
+    try:
+        # Load last message ID from file
+        last_file = "last_reminder.json"
+        if os.path.exists(last_file):
+            with open(last_file, "r") as f:
+                saved = json.load(f)
+                old_channel_id = saved.get("channel_id")
+                old_message_id = saved.get("message_id")
+
+                # Try to delete previous message
+                if old_channel_id == channel_id and old_message_id:
+                    try:
+                        old_msg = await channel.fetch_message(int(old_message_id))
+                        await old_msg.delete()
+                        print("🗑️ Deleted old reminder.")
+                    except Exception as e:
+                        print(f"⚠️ Could not delete old reminder: {e}")
+
+        # Send new reminder
+        embed = discord.Embed(
+            title="✨ Need Help? Here's What You Can Do!",
+            description=(
+                "📡 Use **`st/`** as a prefix to start all commands\n"
+                "📡 Try **`st/Help`** to explore commands and categories\n"
+                "📡 Use **`st/RiotStatus`** to check Riot server status"
+            ),
+            color=discord.Color.blurple()
+        )
+        embed.set_thumbnail(url="https://cdn.jsdelivr.net/gh/ImDaMinh/lolassets/botgear.png")
+        embed.set_footer(text="Your friendly Statsbot assistant 💬")
+
+        new_msg = await channel.send(embed=embed)
+
+        # Save new message ID
+        with open(last_file, "w") as f:
+            json.dump({"channel_id": channel_id, "message_id": new_msg.id}, f)
+
+        print(f"✅ Sent new reminder at {datetime.datetime.now().strftime('%H:%M:%S')}")
+
+    except Exception as e:
+        print(f"❌ Error in periodic reminder: {e}")
+
 
 
 # ========== Riot API Helper Functions ==========
