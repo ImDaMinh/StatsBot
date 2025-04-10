@@ -290,7 +290,6 @@ async def on_command_error(ctx, error):
                 print(f"⚠️ Failed to DM admin ({admin_id}): {e}")
 
 
-
 @bot.event
 async def on_ready():
     print(f"✅ Bot is online as {bot.user}")
