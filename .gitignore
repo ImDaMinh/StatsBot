@@ -7,3 +7,5 @@ test2.py
 .env
 
 venv/
+team_ranking.json
+match_history.json

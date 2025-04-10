@@ -1,0 +1,26 @@
+{
+  "team dragon": {
+    "points": 3,
+    "wins": 1,
+    "losses": 7,
+    "matches": 8
+  },
+  "team doggo": {
+    "points": 21,
+    "wins": 7,
+    "losses": 0,
+    "matches": 7
+  },
+  "team chicken": {
+    "points": 0,
+    "wins": 0,
+    "losses": 10,
+    "matches": 10
+  },
+  "team racing": {
+    "points": 27,
+    "wins": 9,
+    "losses": 0,
+    "matches": 9
+  }
+}
