@@ -301,7 +301,7 @@ async def on_ready():
         print(f"⚠️ Slash sync failed: {e}")
 
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(send_riot_key_reminder, 'cron', hour=19, minute=50, timezone='Europe/Paris')
+    scheduler.add_job(send_riot_key_reminder, 'cron', hour=22, minute=35, timezone='Europe/Paris')
     scheduler.add_job(periodic_reminder, 'interval', hours=3)  # ⏰ Add periodic reminder job
     scheduler.start()
 
